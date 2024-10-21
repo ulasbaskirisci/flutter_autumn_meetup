@@ -1,23 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
 
-class MyAppDnmTwo extends StatelessWidget {
-  const MyAppDnmTwo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ShowCaseWidget(
-      builder: (context) => MaterialApp(
-        title: 'Showcase Butonlar',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const ShowCasePageTwo(),
-      ),
-    );
-  }
-}
-
 class ShowCasePageTwo extends StatefulWidget {
   const ShowCasePageTwo({super.key});
 
@@ -53,7 +36,7 @@ class _ShowCasePageTwoState extends State<ShowCasePageTwo> {
       ),
       body: GridView.count(
         padding: const EdgeInsets.all(16.0),
-        crossAxisCount: 2, // Kare butonlar için 2 sütun kullanıyoruz
+        crossAxisCount: 2, // butonlar için 2 sütun kullanıyoruz
         crossAxisSpacing: 16.0,
         mainAxisSpacing: 16.0,
         children: [
@@ -70,9 +53,9 @@ class _ShowCasePageTwoState extends State<ShowCasePageTwo> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.add, size: 40),
                   SizedBox(height: 8),
                   Text("Ekle"),
@@ -93,9 +76,9 @@ class _ShowCasePageTwoState extends State<ShowCasePageTwo> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.delete, size: 40),
                   SizedBox(height: 8),
                   Text("Sil"),
@@ -116,9 +99,9 @@ class _ShowCasePageTwoState extends State<ShowCasePageTwo> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.edit, size: 40),
                   SizedBox(height: 8),
                   Text("Düzelt"),
@@ -139,9 +122,9 @@ class _ShowCasePageTwoState extends State<ShowCasePageTwo> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.link, size: 40),
                   SizedBox(height: 8),
                   Text("Bağlan"),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ShareExample extends StatelessWidget {
+  const ShareExample({super.key});
+
   // Metin Paylaşımı
   void _shareText(String text) {
     Share.share(text); // Paylaşılacak metni Share.share() ile paylaşıyoruz
@@ -14,7 +16,7 @@ class ShareExample extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Share Plus Örneği'),
+        title: const Text('Share Plus Örneği'),
       ),
       body: Center(
         child: Column(
@@ -24,7 +26,7 @@ class ShareExample extends StatelessWidget {
               onPressed: () {
                 _shareText(textToShare); // Butona tıklanınca metni paylaşır
               },
-              child: Text('Metin Paylaş'),
+              child: const Text('Metin Paylaş'),
             ),
           ],
         ),

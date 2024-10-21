@@ -1,24 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:showcaseview/showcaseview.dart'; // Showcase paketini import ettik
-
-class MyAppDnm extends StatelessWidget {
-  const MyAppDnm({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // ShowCaseWidget kullanarak showcase başlatılıyor
-    return ShowCaseWidget(
-      builder: (context) => MaterialApp(
-        title: 'Kişi Listesi',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const PersonListPage(), // Ana sayfa olarak PersonListPage seçildi
-      ),
-    );
-  }
-}
+import 'package:showcaseview/showcaseview.dart';
 
 class PersonListPage extends StatefulWidget {
   const PersonListPage({super.key});
@@ -55,7 +37,7 @@ class _PersonListPageState extends State<PersonListPage> {
     super.initState();
     // Sayfa yüklendikten hemen sonra Showcase başlatılıyor
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => ShowCaseWidget.of(context).startShowCase([_fabKey, _listKey]),
+      (_) => ShowCaseWidget.of(context).startShowCase([_fabKey]),
     );
   }
 
@@ -206,54 +188,48 @@ class _PersonListPageState extends State<PersonListPage> {
       appBar: AppBar(
         title: const Text('Kişi Listesi'), // Sayfa başlığı
       ),
-      body: Showcase(
-        key: _listKey, // ListKey, Showcase'de kullanılıyor
-        description: 'Bu listede kişilerin bilgilerini görebilirsiniz.',
-        child: ListView.builder(
-          itemCount: _people.length, // Kişi sayısı kadar liste oluşturur
-          itemBuilder: (context, index) {
-            final person = _people[index];
-            return Slidable(
-              key: Key(person.phone),
-              startActionPane: ActionPane(
-                motion: const ScrollMotion(), // Slidable için animasyon
-                children: [
-                  SlidableAction(
-                    onPressed: (_) => _editPerson(index), // Düzenle butonu
-                    backgroundColor: Colors.blue,
-                    foregroundColor: Colors.white,
-                    icon: Icons.edit,
-                    label: 'Düzenle',
-                  ),
-                ],
-              ),
-              endActionPane: ActionPane(
-                motion: const ScrollMotion(),
-                children: [
-                  SlidableAction(
-                    onPressed: (_) => _deletePerson(index), // Sil butonu
-                    backgroundColor: Colors.red,
-                    foregroundColor: Colors.white,
-                    icon: Icons.delete,
-                    label: 'Sil',
-                  ),
-                ],
-              ),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundImage:
-                      NetworkImage(person.avatarUrl), // Avatar resmi
+      body: ListView.builder(
+        itemCount: _people.length, // Kişi sayısı kadar liste oluşturur
+        itemBuilder: (context, index) {
+          final person = _people[index];
+          return Slidable(
+            key: Key(person.phone),
+            startActionPane: ActionPane(
+              motion: const ScrollMotion(), // Slidable için animasyon
+              children: [
+                SlidableAction(
+                  onPressed: (_) => _editPerson(index), // Düzenle butonu
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  icon: Icons.edit,
+                  label: 'Düzenle',
                 ),
-                title:
-                    Text('${person.firstName} ${person.lastName}'), // Kişi adı
-                subtitle: Text(person.phone), // Telefon numarası
+              ],
+            ),
+            endActionPane: ActionPane(
+              motion: const ScrollMotion(),
+              children: [
+                SlidableAction(
+                  onPressed: (_) => _deletePerson(index), // Sil butonu
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.delete,
+                  label: 'Sil',
+                ),
+              ],
+            ),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(person.avatarUrl), // Avatar resmi
               ),
-            );
-          },
-        ),
+              title: Text('${person.firstName} ${person.lastName}'), // Kişi adı
+              subtitle: Text(person.phone), // Telefon numarası
+            ),
+          );
+        },
       ),
       floatingActionButton: Showcase(
-        key: _fabKey, // FAB butonunda Showcase kullanılıyor
+        key: _fabKey,
         description: 'Yeni kişi eklemek için bu butona tıklayın.',
         child: FloatingActionButton(
           onPressed: _addPerson, // Yeni kişi ekleme fonksiyonu

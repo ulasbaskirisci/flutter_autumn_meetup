@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => ShowCaseWidget(
                               builder: (context) =>
-                                  MyAppDnm(), // MyAppDnm() should be used as a widget, not a method
+                                  PersonListPage(), // MyAppDnm() should be used as a widget, not a method
                             ),
                           ),
                         );
@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => ShowCaseWidget(
                               builder: (context) =>
-                                  MyAppDnmTwo(), // MyAppDnm() should be used as a widget, not a method
+                                  ShowCasePageTwo(), 
                             ),
                           ),
                         );

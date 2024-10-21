@@ -4,6 +4,8 @@ import 'package:share_plus/share_plus.dart';
 import 'package:file_picker/file_picker.dart';
 
 class SharePlusGallery extends StatefulWidget {
+  const SharePlusGallery({super.key});
+
   @override
   _SharePlusGalleryState createState() => _SharePlusGalleryState();
 }
@@ -30,7 +32,7 @@ class _SharePlusGalleryState extends State<SharePlusGallery> {
   Future<void> _shareImage() async {
     if (_imageFile != null) {
       // XFile nesnesi oluşturuyoruz
-      final XFile xFile = XFile(_imageFile!.path);
+      final XFile xFile = XFile(_imageFile!.path, name: "image");
 
       // shareXFiles fonksiyonu XFile türünde bir liste bekler
       await Share.shareXFiles([xFile], text: 'Bu görseli paylaşın!');
