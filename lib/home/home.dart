@@ -7,6 +7,9 @@ import 'package:flutter_ankara_1/share_plus/share_plus_camera.dart';
 import 'package:flutter_ankara_1/shared_preferences/shared_preferences.dart';
 import 'package:flutter_ankara_1/show_case/show_case.dart';
 import 'package:flutter_ankara_1/show_case/show_case_two.dart';
+import 'package:flutter_ankara_1/shimmer/shimmer_example.dart';
+import 'package:flutter_ankara_1/connectivity/connectivity_example.dart';
+import 'package:flutter_ankara_1/share_plus_new/share_plus_new_example.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 class HomePage extends StatelessWidget {
@@ -61,8 +64,7 @@ class HomePage extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => ShowCaseWidget(
-                              builder: (context) =>
-                                  ShowCasePageTwo(), 
+                              builder: (context) => ShowCasePageTwo(),
                             ),
                           ),
                         );
@@ -148,6 +150,54 @@ class HomePage extends StatelessWidget {
                             builder: (context) => DateFormatExample()));
                       },
                       child: const Text('Date Time'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ShimmerExample()));
+                      },
+                      child: const Text('Shimmer Loading'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ConnectivityExample()));
+                      },
+                      child: const Text('Connectivity Plus'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SharePlusNewExample()));
+                      },
+                      child: const Text('Share Plus 12.0.0'),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(
                           vertical: 15,
